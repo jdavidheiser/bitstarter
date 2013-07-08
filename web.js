@@ -6,10 +6,14 @@ var app = express.createServer(express.logger());
 
 // If we set default text, we know that we didn't read the file correctly
 
+
+
 app.get('/', function(request, response) {
   var fs = require('fs');
   buffer = fs.readFileSync('index.html');
-  console.log(buffer.toString())
+  response.send(buffer.toString());
+
+
 });
 
 var port = process.env.PORT || 5000;
