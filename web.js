@@ -1,12 +1,7 @@
-
  
 var express = require('express');
 
 var app = express.createServer(express.logger());
-
-// If we set default text, we know that we didn't read the file correctly
-
-
 
 app.get('/', function(request, response) {
   var fs = require('fs');
