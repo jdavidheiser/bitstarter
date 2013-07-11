@@ -82,6 +82,11 @@ var runTests = function(location,checksfile){
 		  var gradeURL = buildfn(checksfile);
 		  rest.get(location).on('complete',gradeURL);
 	 } else {
+
+		  /* here, wre are using an asynchronous rest call if it's a URL
+			  and a synchronous file read command if it 's a file
+			  for consistency, we could switch this to an async file read
+			  too, so the program behaves the same in both instances */
 		  console.log(location + "    " + checksfile);
 		  html = fs.readFileSync(location);
 		  checkHtml(html,checksfile);
